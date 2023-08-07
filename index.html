@@ -14,7 +14,7 @@
         <h1>HK CALCULATOR</h1>
         <div class=flex-box1 id=no>
             <form action="" id="myform" name="calc" class="calc-buttons">
-                <input type="" name="display" id="display" class="flex-box1">
+                <input type="" name="display" id="display" class="flex-box1" onkeydown="handleKeyDown(event)">
                 <div class="four-columns">
                     <input type="button" value="0" onclick="calc.display.value+='0'">
                     <input type="button" value="1" onclick="calc.display.value+='1'">
@@ -54,6 +54,17 @@
         function displaying() {
             var one = document.getElementById("one");
             screen.innerHTML = 1 + 1;
+        }
+        function handleKeyDown(event){
+           
+            if(event.key==="Enter"){
+                event.preventDefault()
+                calculate()
+            }
+        }
+        function calculate(){
+            var display=document.getElementById("display")
+            display.value=eval(display.value)
         }
 
     </script>
